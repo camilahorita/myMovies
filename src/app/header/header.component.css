@@ -1,0 +1,55 @@
+header{
+  background-image: url("../../assets/popcornback.png");
+  width: 100%;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+h1 {
+  padding-top: 80px;
+
+  font-weight: 300;
+  font-size:  50px;
+}
+h1 span {
+  font-weight: 700;
+}
+h1, h2 {
+  text-align: center;
+  color: white;
+}
+h2{
+  padding-top: 20px;
+}
+label {
+  font-size: 24px;
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+.boxsearch {
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.boxsearch input {
+  height: 30px;
+  width: 200px;
+  border-radius: 30px;
+  border: none;
+}
+
+.boxsearch button {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 30px;
+}
+
+
