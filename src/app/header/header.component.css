@@ -24,7 +24,7 @@ h2{
 }
 label {
   font-size: 24px;
-  padding-top: 20px;
+  padding-top: 24px;
   display: block;
   margin: auto;
   text-align: center;
@@ -50,6 +50,13 @@ label {
   color: white;
   padding: 8px 12px;
   border-radius: 30px;
+}
+
+.boxsearch button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: rgb(171, 3, 3);
+
 }
 
 
