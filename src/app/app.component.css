@@ -1,0 +1,12 @@
+.movies {
+  margin: auto;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+app-moviebox {
+  width: 100vw;
+  display: grid;
+  grid-template-areas: " A B C";
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-moviebox',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieboxComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[] | undefined;
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.movieService.searchMovie('Batman').subscribe(result => {
+      this.movies = result.Search;
+    });
   }
 
 }
