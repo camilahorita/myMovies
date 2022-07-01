@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input,  OnInit, Output} from '@angular/core';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
@@ -17,7 +17,13 @@ export class MovieboxComponent implements OnInit  {
   constructor(private movieService: MovieService) { }
 
   @Input() valueName: string = '';
+  
+  @Output() public emmitPage: EventEmitter<string> = new EventEmitter();
+  
+  public goToPage(value:string){
+    this.emmitPage.emit(value);
 
+  }
   ngOnInit(): void {
     this.movieService.searchMovie(this.valueName).subscribe(result => {
       this.movies = result.Search;

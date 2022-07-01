@@ -1,4 +1,4 @@
 <div class="box" *ngFor="let movie of movies">
-    <img [src]="movie.Poster" [alt]="movie.Title">
+    <img (click)="goToPage('Detail')"  [src]="movie.Poster" [alt]="movie.Title">
     <p>{{ movie.Title }}</p>
 </div>

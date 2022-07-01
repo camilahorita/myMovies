@@ -6,9 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { MovieboxComponent } from './moviebox/moviebox.component';
-
+import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,13 +15,13 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     BodyComponent,
-    MovieboxComponent
+    MovieboxComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

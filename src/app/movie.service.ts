@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from './movie';
 
-
 export type ApiResponse = {
   Response: string;
   Search: Movie[];
