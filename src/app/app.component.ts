@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { MovieService } from './movie.service';
+import { Component, ViewChild } from '@angular/core';
+import { MovieboxComponent } from './moviebox/moviebox.component';
+
 
 const url:string = 'https://api.themoviedb.org/3/discover/movie?api_key=e6171b13d4159aa39793cc0b447bbb93&sort_by=popularity.desc';
 
@@ -11,5 +11,17 @@ const url:string = 'https://api.themoviedb.org/3/discover/movie?api_key=e6171b13
 })
 export class AppComponent {
   title = 'my-movie-project';
+  
+  constructor() { }
+  value: string = ''
+  @ViewChild(MovieboxComponent, { static: false })
+  movie!: MovieboxComponent;
+
+
+  public getSearch(value:string) {
+    this.value= value;
+    this.movie.search(this.value)
+    
+  }
 
 }

@@ -1,4 +1,4 @@
-<app-header></app-header>
-<div class="movies">
-  <app-moviebox></app-moviebox>
-</div>
+<app-header (emmitSearch) = "getSearch($event)"></app-header>
+<section class="movies">
+  <app-moviebox valueName = value ></app-moviebox>
+</section>

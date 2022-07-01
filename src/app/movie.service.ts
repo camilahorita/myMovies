@@ -12,8 +12,10 @@ export type ApiResponse = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
   apiURL: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=bd3ee387';
+  movies: Movie[] | undefined;
 
   constructor(private httpClient: HttpClient) {}
 
