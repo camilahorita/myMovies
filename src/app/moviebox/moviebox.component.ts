@@ -14,7 +14,10 @@ export class MovieboxComponent implements OnInit  {
 
   movies: Movie[] | undefined;
 
-  constructor(private movieService: MovieService) { }
+
+  constructor(private movieService: MovieService) {
+    this.movieService.currentMessage.subscribe(message => this.movies = message);
+   }
 
   @Input() valueName: string = '';
   
@@ -25,10 +28,10 @@ export class MovieboxComponent implements OnInit  {
 
   }
   ngOnInit(): void {
-    this.movieService.searchMovie(this.valueName).subscribe(result => {
-      this.movies = result.Search;
-    });
-  }
+    this.movieService.searchMovie('Batman').subscribe(result => {
+    this.movies =result.Search;
+  })
+ }
 
   search(value:string) {
     console.log(value);

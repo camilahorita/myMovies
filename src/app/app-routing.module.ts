@@ -5,6 +5,7 @@ import { MovieboxComponent } from './moviebox/moviebox.component';
 
 const routes: Routes = [
   {path: "Detail", component: DetailsComponent},
+  {path: "main", component: MovieboxComponent},
  
 ];
 

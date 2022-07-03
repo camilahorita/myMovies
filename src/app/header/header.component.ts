@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 
 
@@ -11,17 +13,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() public emmitSearch: EventEmitter<string> = new EventEmitter();
-
-  constructor() { }
+  movies: Movie[] =[]
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
   }
 
 
-
   public search(value:string){
-    this.emmitSearch.emit(value);
-
-  }
-
+    this.movieService.searchMovie(value).subscribe(result => {
+    this.movies =result.Search;
+  })
+  this.movieService.changeMessage(this.movies) }
 }

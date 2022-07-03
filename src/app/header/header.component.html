@@ -2,7 +2,7 @@
   <h1><span>MY</span> MOVIES</h1> 
   <label for="search"> Explora ahora</label>
   <div class="boxsearch">
-    <input type="text" id="search" #input (keyup)="search(input.value)">
-    <!-- <button > BUSCAR </button> -->
+    <input type="text" id="search" #input >
+    <button (click)="search(input.value)" > BUSCAR </button>
   </div>
 </header>

@@ -1,7 +1,9 @@
 <app-header (emmitSearch) = "getSearch($event)"></app-header>
-
-<router-outlet>
-
 <section class="movies">
-  <app-moviebox (emmitPage) = "goToPage($event)" valueName = value ></app-moviebox>
+  <router-outlet ></router-outlet>
 </section>
+
+
+<!-- <section class="movies">
+  <app-moviebox (emmitPage) = "goToPage($event)" valueName = value ></app-moviebox>
+</section> -->

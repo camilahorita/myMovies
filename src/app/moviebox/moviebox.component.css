@@ -4,6 +4,13 @@
   margin: auto;
   padding: 40px;
 }
+section {
+  width: 100vw;
+  display: grid;
+  align-self: auto;
+  align-items: center;
+  grid-template-areas: "A B C";
+}
 img{
   display: block;
   margin: auto;
