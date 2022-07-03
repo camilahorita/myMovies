@@ -26,7 +26,6 @@ export class DetailsComponent implements OnInit {
       console.log(this.id);
       this.search(this.id);
       })
-
     }
     search(id:any) {
       this.service.searchMovieId(id).subscribe(result => {
@@ -34,11 +33,5 @@ export class DetailsComponent implements OnInit {
         console.log(this.movie)
       })
     }
-    getId (){
-      const result = this.route.params.subscribe(params => {
-        this.id = params['id']; 
-        console.log(this.id);
-        return(this.id)
-        })
-    }
+
   }

@@ -1,9 +1,14 @@
-<p>{{ movie.Title }}</p>
-<img [src]="movie.Poster" [alt]="movie.Title">
-<p>{{ movie.Released }}</p>
-<p> {{ movie.Language }}</p>
-<p>{{ movie.Plot }}</p>
-<p>{{ movie.Genre }}</p>
+
+<section class="movieDetails">
+  <img [src]="movie.Poster" [alt]="movie.Title">
+  <div class="movieInfo">
+    <h2> {{ movie.Title }} </h2>
+    <p> Released date: {{ movie.Released }}</p>
+    <p> Language: {{ movie.Language }}</p>
+    <p> Genre: {{ movie.Genre }}</p>
+    <p class="plot"> {{ movie.Plot }}</p>
+  </div>
+</section>
 
 
 
