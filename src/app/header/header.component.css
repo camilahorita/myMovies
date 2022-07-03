@@ -1,7 +1,7 @@
 header{
   background-image: url("../../assets/popcornback.png");
   width: 100%;
-  height: 350px;
+  height: 30vh;
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover; 
@@ -38,6 +38,7 @@ label {
   gap: 10px;
 }
 .boxsearch input {
+  padding-left: 15px;
   height: 30px;
   width: 200px;
   border-radius: 30px;

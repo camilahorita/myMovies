@@ -9,13 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./moviebox.component.css']
 })
 export class MovieboxComponent implements OnInit  {
-  static search() {
-    throw new Error('Method not implemented.');
-  }
-
+ 
   movies: Movie[] | undefined;
-
-
   constructor(private movieService: MovieService, private router: Router) {
     this.movieService.currentMovies.subscribe(newmovies => this.movies = newmovies);
    }
@@ -34,6 +29,9 @@ export class MovieboxComponent implements OnInit  {
   search(value:string) {
     console.log(value);
     this.movieService.searchMovie(value).subscribe(result => {
+      if(result.Search === undefined) {
+        throw new Error('Not found')
+      }
       this.movies =result.Search;
       this.movieService.movies = result.Search;
     })

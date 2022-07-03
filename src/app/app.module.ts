@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MovieboxComponent } from './moviebox/moviebox.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     MovieboxComponent,
-    DetailsComponent
+    DetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
