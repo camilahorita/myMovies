@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MovieboxComponent } from './moviebox/moviebox.component';
 import { Router } from '@angular/router';
 
-const url:string = 'https://api.themoviedb.org/3/discover/movie?api_key=e6171b13d4159aa39793cc0b447bbb93&sort_by=popularity.desc';
+const url:string = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`;
 
 @Component({
   selector: 'app-root',
