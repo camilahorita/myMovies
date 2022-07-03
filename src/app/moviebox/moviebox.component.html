@@ -1,6 +1,6 @@
 <section>
 <div class="box" *ngFor="let movie of movies">
-    <img (click)="goToPage('Detail')"  [src]="movie.Poster" [alt]="movie.Title">
+    <img [routerLink]="['/details', movie.imdbID]"  [src]="movie.Poster" [alt]="movie.Title">
     <p>{{ movie.Title }}</p>
 </div>
 </section>

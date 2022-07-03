@@ -19,15 +19,4 @@ export class AppComponent {
     this.router.navigate([ `${pageName}`])
   }
 
-  value: string = ''
-  @ViewChild(MovieboxComponent, { static: false })
-  movie!: MovieboxComponent;
-
-
-  public getSearch(value:string) {
-    this.value= value;
-    this.movie.search(this.value)
-    
-  }
-
 }

@@ -4,7 +4,7 @@ import { DetailsComponent } from './details/details.component';
 import { MovieboxComponent } from './moviebox/moviebox.component';
 
 const routes: Routes = [
-  {path: "Detail", component: DetailsComponent},
+  {path: "details/:id", component: DetailsComponent},
   {path: "main", component: MovieboxComponent},
  
 ];

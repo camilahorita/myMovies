@@ -12,17 +12,16 @@ import { MovieService } from '../movie.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() public emmitSearch: EventEmitter<string> = new EventEmitter();
   movies: Movie[] =[]
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
   }
 
-
   public search(value:string){
     this.movieService.searchMovie(value).subscribe(result => {
     this.movies =result.Search;
+    this.movieService.changeMovies(this.movies);
   })
-  this.movieService.changeMessage(this.movies) }
+  }
 }

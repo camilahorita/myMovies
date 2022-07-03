@@ -14,19 +14,22 @@ export type ApiResponse = {
 })
 
 export class MovieService {
-  apiURL: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=bd3ee387';
+  apiURL: string = 'https://www.omdbapi.com/?apikey=bd3ee387';
   movies: Movie[] = [];
 
-  private messageSource = new BehaviorSubject(this.movies);
-  currentMessage = this.messageSource.asObservable();
+  private moviesSource = new BehaviorSubject(this.movies);
+  currentMovies = this.moviesSource.asObservable();
 
   constructor(private httpClient: HttpClient) {}
 
   searchMovie(name: string) {
     return this.httpClient.get<ApiResponse>(`${this.apiURL}&s=${name}`);
   }
+  searchMovieId(id:string) {
+    return this.httpClient.get(`${this.apiURL}&i=${id}`);
+  }
 
-  changeMessage(message: Movie[]) {
-    this.messageSource.next(message)
+  changeMovies(movies: Movie[]) {
+    this.moviesSource.next(movies)
   }
 }

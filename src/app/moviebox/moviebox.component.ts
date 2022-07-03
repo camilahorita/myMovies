@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input,  OnInit, Output} from '@angular/core';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moviebox',
@@ -15,21 +16,18 @@ export class MovieboxComponent implements OnInit  {
   movies: Movie[] | undefined;
 
 
-  constructor(private movieService: MovieService) {
-    this.movieService.currentMessage.subscribe(message => this.movies = message);
+  constructor(private movieService: MovieService, private router: Router) {
+    this.movieService.currentMovies.subscribe(newmovies => this.movies = newmovies);
    }
 
-  @Input() valueName: string = '';
-  
-  @Output() public emmitPage: EventEmitter<string> = new EventEmitter();
-  
-  public goToPage(value:string){
-    this.emmitPage.emit(value);
-
+  public goToPage(id:string):void   {
+    this.router.navigate(['/details', id]);
   }
+  
   ngOnInit(): void {
     this.movieService.searchMovie('Batman').subscribe(result => {
-    this.movies =result.Search;
+    this.movies = result.Search;
+    this.movieService.movies = result.Search;
   })
  }
 
@@ -37,8 +35,10 @@ export class MovieboxComponent implements OnInit  {
     console.log(value);
     this.movieService.searchMovie(value).subscribe(result => {
       this.movies =result.Search;
+      this.movieService.movies = result.Search;
     })
   }
+  
 
 
 }

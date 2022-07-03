@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-details',
@@ -6,15 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  id: string = ''
+  private sub: any;
+  movies: Movie[] = []
+  movie:any;
+  
+  constructor(private route: ActivatedRoute, private service: MovieService) { }
 
-  constructor( ) { }
+  ngOnInit() {
+    // this.service.searchMovieId('tt1877830').subscribe(result => {
+    //   this.movie =result;
+    //   console.log(result)
+    // })
+    const result = this.route.params.subscribe(params => {
+      this.id = params['id']; 
+      console.log(this.id);
+      this.search(this.id);
+      })
 
-  ngOnInit(): void {
-    this.movie;
+    }
+    search(id:any) {
+      this.service.searchMovieId(id).subscribe(result => {
+        this.movie =result;
+        console.log(this.movie)
+      })
+    }
+    getId (){
+      const result = this.route.params.subscribe(params => {
+        this.id = params['id']; 
+        console.log(this.id);
+        return(this.id)
+        })
+    }
   }
-
-  get movie(){
-    return
-  }
-
-}
