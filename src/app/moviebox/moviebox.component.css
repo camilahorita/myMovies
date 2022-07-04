@@ -1,5 +1,5 @@
 .box{
-  width: 350px;
+  width: 100%;
   min-height: 60vh;
   margin: auto;
   padding: 40px;
@@ -10,6 +10,7 @@ section {
   align-self: auto;
   align-items: center;
   grid-template-areas: "A B C";
+
 }
 img{
   display: block;
@@ -25,3 +26,31 @@ p{
   font-size: 16px;
   color: white;
 }
+@media (max-width: 1200px) {
+  section{
+    grid-template-areas: "A B";
+  }
+  .box{
+    padding: 80px 0 5px;
+    min-height: 45vh;
+  }
+}
+@media (max-width: 600px) {
+  section{
+    display: block;
+  }
+  .box{
+    padding: 40px 0 5px;
+    min-height: 45vh;
+  }
+}
+
+@media (max-width: 400px) {
+  section{
+    display: block;
+  }
+  .box{
+    padding: 40px 0 5px;
+  }
+}
+
