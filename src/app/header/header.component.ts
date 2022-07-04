@@ -11,10 +11,11 @@ import { MovieService } from '../movie.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('input') inputName: any;
+  @ViewChild('input') inputValue: any;
 
-
-  movies: Movie[] =[]
+  movies: Movie[] =[];
+  show: boolean =false;
+  content: string = '';
 
   constructor(private movieService: MovieService, private router: Router) { }
 
@@ -33,13 +34,29 @@ export class HeaderComponent implements OnInit {
   }
 
   async searchNewMovies(value:string){
+    if (value === '') {
+      this.inputValue.nativeElement.focus();
+      throw new Error('The input is required to search');
+    }
     this.movieService.searchMovie(value).subscribe(result => {
-      this.movies =result.Search;
+      console.log
+      if( result.Response === 'False'){
+        this.show = true;
+        this.content = 'Movie Not Found';
+      } 
+      if (result.Response === 'True') { 
+        this.show = false;
+      } 
+      if ( result.Response !== 'True' && result.Response !== 'False') {
+        this.show =true;
+        this.content = "Error"
+      }
+      this.movies = result.Search;
       this.movieService.changeMovies(this.movies);
     })
   }
 
   cleanInput() {
-    this.inputName.nativeElement.value = ''
+    this.inputValue.nativeElement.value = ''
   }
 }

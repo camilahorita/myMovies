@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { MovieboxComponent } from './moviebox/moviebox.component';
-import { Router } from '@angular/router';
 
-const url:string = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
