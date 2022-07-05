@@ -12,7 +12,7 @@ import { MovieService } from '../../service/movie.service';
 export class DetailsComponent implements OnInit {
   id: string = ''
   movies: Movie[] = []
-  movie:any;
+  movie:any ={Title:"New title",Released:"",Genre:"",Language:"", Year:"",imdbID:"1",Poster:"",Plot:""};
   subscription!: Subscription; 
   
   constructor(private route: ActivatedRoute, private service: MovieService) { }
@@ -24,13 +24,12 @@ export class DetailsComponent implements OnInit {
       this.search(this.id);
       })
     }
-    search(id:any) {
+  search(id:any) {
       this.service.searchMovieId(id).subscribe(result => {
         this.movie =result;
       })
     }
   ngOnDestroy() {
       this.subscription.unsubscribe();
-  }
-
+    } 
 }

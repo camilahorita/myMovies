@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -9,6 +10,7 @@ describe('MovieService', () => {
   let service: MovieService;
   let httpController: HttpTestingController;
   let httpMock: HttpTestingController;
+  let http : HttpClient;
 
   beforeEach(() => {
    TestBed.configureTestingModule({
@@ -18,8 +20,8 @@ describe('MovieService', () => {
     ],
    });
    service = TestBed.inject(MovieService);
-   httpMock = TestBed.inject(HttpTestingController)
-   httpController = TestBed.inject(HttpTestingController);
+   httpMock = TestBed.inject(HttpTestingController);
+   http = TestBed.inject(HttpClient);
   });
   afterEach(() => {
     httpMock.verify();
@@ -44,6 +46,13 @@ describe('MovieService', () => {
 
     request.flush(dummyMovies);
   })
+
+  it('should call the GET method with the correct endpoint', () => {
+    const spy = spyOn(http, 'get').and.callThrough();
+    service.searchMovie('Batman');
+    expect(spy).toHaveBeenCalled();
+
+  })
   it('should retrieve a movie from API via GET with the id', () => {
     const dummyMovies: Movie[] =[
       {"Title":"Batman Begins","Released":"2005","Genre":"Action","Language": "English","Year":"2005","imdbID":"1","Poster":"https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg","Plot":""},
@@ -61,5 +70,6 @@ describe('MovieService', () => {
 
     request.flush(dummyMovies);
   })
+ 
 
 });

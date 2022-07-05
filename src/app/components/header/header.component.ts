@@ -24,22 +24,21 @@ export class HeaderComponent implements OnInit {
 
   }
   async search(value:string){
-    await this.returnPage();
+    this.returnPage();
     await this.searchNewMovies(value);
-    await this.cleanInput();
+    this.cleanInput();
   }
 
-  async returnPage() {
+  returnPage() {
     this.router.navigateByUrl('/main');
   }
 
   async searchNewMovies(value:string){
     this.movieService.searchMovie(value).subscribe(result => {
       this.movieService.changeMovies(result.Search);
-      
       if( result.Response === 'False'){
         this.show = true;
-        this.content = 'Movie Not Found';
+        this.content = result.Error;
       } 
       if (result.Response === 'True') { 
         this.show = false;
@@ -47,7 +46,7 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  async cleanInput() {
+  cleanInput() {
     this.inputValue.nativeElement.value = ''
   }
 }

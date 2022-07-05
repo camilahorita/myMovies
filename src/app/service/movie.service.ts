@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { Movie } from '../classes/movie';
@@ -6,6 +6,7 @@ import { Movie } from '../classes/movie';
 export type ApiResponse = {
   Response: string;
   Search: Movie[];
+  Error: string;
 };
 
 @Injectable({
@@ -22,11 +23,15 @@ export class MovieService {
   constructor(private httpClient: HttpClient) {}
 
   searchMovie(name: string) {
-    return this.httpClient.get<ApiResponse>(`${this.apiURL}&s=${name}`);
+    return this.httpClient.get<ApiResponse>(`${this.apiURL}&s=${name}`).pipe(catchError((error: HttpErrorResponse) => {
+      return throwError(error.error);
+    }));
   }
   
   searchMovieId(id:string) {
-    return this.httpClient.get<ApiResponse>(`${this.apiURL}&i=${id}`); 
+    return this.httpClient.get<ApiResponse>(`${this.apiURL}&i=${id}`).pipe(catchError((error: HttpErrorResponse) => {
+      return throwError(error.error);
+    }));
   }
 
   changeMovies(movies: Movie[]) {
