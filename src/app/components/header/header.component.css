@@ -1,5 +1,5 @@
 header{
-  background-image: url("../../assets/popcornback.png");
+  background-image: url("../../../assets/popcornback.png");
   width: 100%;
   height: 30vh;
   background-position: center;
@@ -68,7 +68,7 @@ label {
 
 @media (max-width: 800px) {
   header{
-  background-image: url("../../assets/popcornbackipad.png");
+  background-image: url("../../../assets/popcornbackipad.png");
   width: 100vw;
   height: 35vh;
   }
@@ -79,7 +79,7 @@ label {
  
 @media (max-width: 400px) {
   header{
-  background-image: url("../../assets/popcornbacktel.png");
+  background-image: url("../../../assets/popcornbacktel.png");
   width: 100vw;
   height: 35vh;
   }

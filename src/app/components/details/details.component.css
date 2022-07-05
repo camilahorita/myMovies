@@ -1,0 +1,52 @@
+h2, p{
+  color:white;
+}
+h2 {
+  margin-bottom: 20px;
+}
+.movieDetails {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+}
+.movieInfo {
+  max-width: 600px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plot {
+  margin-top: 15px;
+}
+@media (max-width: 1100px) {
+.movieDetails{
+  padding-top: 80px;
+}
+}
+
+@media (max-width: 600px) {
+  .movieDetails{
+    display: block;
+    padding-top: 40px;
+  }
+  .movieInfo, img{
+    margin: auto;
+    width: 250px;
+  }
+}
+@media (max-width: 400px) {
+ 
+  .movieInfo, img{
+    margin: auto;
+    width: 250px;
+  }
+
+@media (max-width: 300px) {
+   
+    .movieInfo, img{
+      margin: auto;
+      width: 200px;
+    }
+  }
+}

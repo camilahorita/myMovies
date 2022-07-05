@@ -2,15 +2,15 @@
   width: 100%;
   min-height: 60vh;
   margin: auto;
-  padding: 40px;
+  padding: 40px 10px;
 }
 section {
+  padding: 0 200px;
   width: 100vw;
   display: grid;
   align-self: auto;
   align-items: center;
   grid-template-areas: "A B C";
-
 }
 img{
   display: block;
@@ -28,6 +28,7 @@ p{
 }
 @media (max-width: 1200px) {
   section{
+    padding: 0 100px;
     grid-template-areas: "A B";
   }
   .box{
@@ -37,6 +38,7 @@ p{
 }
 @media (max-width: 600px) {
   section{
+    padding: 0 0;
     display: block;
   }
   .box{

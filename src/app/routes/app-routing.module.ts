@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailsComponent } from './details/details.component';
-import { MovieboxComponent } from './moviebox/moviebox.component';
+import { DetailsComponent } from '../components/details/details.component';
+import { MovieboxComponent } from '../components/main/moviebox.component';
 
 const routes: Routes = [
   {path: "details/:id", component: DetailsComponent},

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../movie';
-import { MovieService } from '../movie.service';
+import { Subscription } from 'rxjs';
+import { Movie } from '../../classes/movie';
+import { MovieService } from '../../service/movie.service';
 
 @Component({
   selector: 'app-details',
@@ -10,18 +11,14 @@ import { MovieService } from '../movie.service';
 })
 export class DetailsComponent implements OnInit {
   id: string = ''
-  private sub: any;
   movies: Movie[] = []
   movie:any;
+  subscription!: Subscription; 
   
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit() {
-    // this.service.searchMovieId('tt1877830').subscribe(result => {
-    //   this.movie =result;
-    //   console.log(result)
-    // })
-    const result = this.route.params.subscribe(params => {
+    this.subscription = this.route.params.subscribe(params => {
       this.id = params['id']; 
       console.log(this.id);
       this.search(this.id);
@@ -30,8 +27,10 @@ export class DetailsComponent implements OnInit {
     search(id:any) {
       this.service.searchMovieId(id).subscribe(result => {
         this.movie =result;
-        console.log(this.movie)
       })
     }
-
+  ngOnDestroy() {
+      this.subscription.unsubscribe();
   }
+
+}

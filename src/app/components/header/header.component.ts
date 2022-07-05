@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Movie } from '../movie';
-import { MovieService } from '../movie.service';
+import { Movie } from '../../classes/movie';
+import { MovieService } from '../../service/movie.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  
   @ViewChild('input') inputValue: any;
 
   movies: Movie[] =[];
@@ -20,13 +20,13 @@ export class HeaderComponent implements OnInit {
   constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
+    this.searchNewMovies('batman');
 
   }
-
   async search(value:string){
     await this.returnPage();
     await this.searchNewMovies(value);
-    this.cleanInput();
+    await this.cleanInput();
   }
 
   async returnPage() {
@@ -34,12 +34,9 @@ export class HeaderComponent implements OnInit {
   }
 
   async searchNewMovies(value:string){
-    if (value === '') {
-      this.inputValue.nativeElement.focus();
-      throw new Error('The input is required to search');
-    }
     this.movieService.searchMovie(value).subscribe(result => {
-      console.log
+      this.movieService.changeMovies(result.Search);
+      
       if( result.Response === 'False'){
         this.show = true;
         this.content = 'Movie Not Found';
@@ -47,16 +44,10 @@ export class HeaderComponent implements OnInit {
       if (result.Response === 'True') { 
         this.show = false;
       } 
-      if ( result.Response !== 'True' && result.Response !== 'False') {
-        this.show =true;
-        this.content = "Error"
-      }
-      this.movies = result.Search;
-      this.movieService.changeMovies(this.movies);
     })
   }
 
-  cleanInput() {
+  async cleanInput() {
     this.inputValue.nativeElement.value = ''
   }
 }

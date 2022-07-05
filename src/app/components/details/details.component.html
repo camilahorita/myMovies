@@ -1,8 +1,7 @@
-
 <section class="movieDetails">
-  <img [src]="movie.Poster" [alt]="movie.Title">
+  <img [src]="movie.Poster" onerror="this.src='../../assets/placeholder-noimage.jpeg'" [alt]="movie.Title">
   <div class="movieInfo">
-    <h2> {{ movie.Title }} </h2>
+    <h2> {{ movie.Title }} || Titulo </h2>
     <p> Released date: {{ movie.Released }}</p>
     <p> Language: {{ movie.Language }}</p>
     <p> Genre: {{ movie.Genre }}</p>
