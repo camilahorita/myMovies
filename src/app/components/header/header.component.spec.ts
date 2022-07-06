@@ -12,11 +12,11 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule
       ],
-      declarations: [ HeaderComponent ]
+      declarations: [HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
@@ -27,9 +27,9 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it ('should return Movie Not Found', () => {
-  const inputValue = fixture.debugElement.query(By.css('.username'));
-  expect(component.cleanInput)
-    
-  }) 
+  it('should clean the input', () => {
+    let el = component.cleanInput();
+    fixture.detectChanges;
+    expect(el).toEqual("");
+  });
 });

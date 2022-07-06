@@ -1,27 +1,33 @@
-header{
+header {
   background-image: url("../../../assets/popcornback.png");
   width: 100%;
   height: 30vh;
   background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 h1 {
   padding-top: 80px;
 
   font-weight: 300;
-  font-size:  50px;
+  font-size: 50px;
 }
+
 h1 span {
   font-weight: 700;
 }
-h1, h2 {
+
+h1,
+h2 {
   text-align: center;
   color: white;
 }
-h2{
+
+h2 {
   padding-top: 20px;
 }
+
 label {
   font-size: 24px;
   padding-top: 24px;
@@ -30,6 +36,7 @@ label {
   text-align: center;
   color: white;
 }
+
 .boxsearch {
   padding-top: 12px;
   display: flex;
@@ -37,6 +44,7 @@ label {
   justify-content: center;
   gap: 10px;
 }
+
 .boxsearch input {
   padding-left: 15px;
   height: 30px;
@@ -59,34 +67,36 @@ label {
   background-color: rgb(171, 3, 3);
 
 }
+
 .response {
   padding: 20px;
   font-size: 24px;
-  background-color: rgb( 1, 1, 1);
+  background-color: rgb(1, 1, 1);
   color: white;
 }
 
 @media (max-width: 800px) {
-  header{
-  background-image: url("../../../assets/popcornbackipad.png");
-  width: 100vw;
-  height: 35vh;
+  header {
+    background-image: url("../../../assets/popcornbackipad.png");
+    width: 100vw;
+    height: 35vh;
   }
+
   h1 {
     padding-top: 40px;
   }
 }
- 
+
 @media (max-width: 400px) {
-  header{
-  background-image: url("../../../assets/popcornbacktel.png");
-  width: 100vw;
-  height: 35vh;
+  header {
+    background-image: url("../../../assets/popcornbacktel.png");
+    width: 100vw;
+    height: 35vh;
   }
+
   h1 {
     padding-top: 40px;
   }
 
-  
-}
 
+}

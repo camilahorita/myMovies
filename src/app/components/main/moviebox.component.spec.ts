@@ -11,13 +11,13 @@ describe('MovieboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieboxComponent ],
+      declarations: [MovieboxComponent],
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MovieboxComponent);
     component = fixture.componentInstance;
@@ -28,7 +28,7 @@ describe('MovieboxComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should change the image and photo', () => {
-    component.movies = [{Title:"New title",Released:"",Genre:"",Language:"", Year:"",imdbID:"1",Poster:"Newphoto",Plot:""}];
+    component.movies = [{ Title: "New title", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "Newphoto", Plot: "" }];
     fixture.detectChanges();
     const elementTitle = fixture.debugElement.query(By.css('#title'));
     const elementPhoto = fixture.debugElement.query(By.css('#image'));

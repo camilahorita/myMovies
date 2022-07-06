@@ -12,24 +12,24 @@ import { MovieService } from '../../service/movie.service';
 export class DetailsComponent implements OnInit {
   id: string = ''
   movies: Movie[] = []
-  movie:any ={Title:"New title",Released:"",Genre:"",Language:"", Year:"",imdbID:"1",Poster:"",Plot:""};
-  subscription!: Subscription; 
-  
+  movie: any = { Title: "New title", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "", Plot: "" };
+  subscription!: Subscription;
+
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
-      this.id = params['id']; 
+      this.id = params['id'];
       console.log(this.id);
       this.search(this.id);
-      })
-    }
-  search(id:any) {
-      this.service.searchMovieId(id).subscribe(result => {
-        this.movie =result;
-      })
-    }
+    })
+  }
+  search(id: any) {
+    this.service.searchMovieId(id).subscribe(result => {
+      this.movie = result;
+    })
+  }
   ngOnDestroy() {
-      this.subscription.unsubscribe();
-    } 
+    this.subscription.unsubscribe();
+  }
 }

@@ -1,9 +1,9 @@
 <header>
-  <h1><span>MY</span> MOVIES</h1> 
+  <h1><span>MY</span> MOVIES</h1>
   <label for="search"> Explore now</label>
   <div class="boxsearch">
-    <input type="text" placeholder="Holmes" id="search" (keyup.enter)="search(input.value)" class="search" #input >
+    <input type="text" placeholder="Holmes" id="search" (keyup.enter)="search(input.value)" class="search" #input>
     <button class="button" (click)="search(input.value)"> Search </button>
   </div>
 </header>
-<p class="response" *ngIf ="show" > {{content}}</p>
+<p class="response" *ngIf="show"> {{content}}</p>

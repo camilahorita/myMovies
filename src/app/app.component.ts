@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'my-movie-project';
-  
+
   constructor(private router: Router) { }
 
-  public goToPage(pageName:string):void   {
-    this.router.navigate([ `${pageName}`])
+  public goToPage(pageName: string): void {
+    this.router.navigate([`${pageName}`])
   }
 
 }

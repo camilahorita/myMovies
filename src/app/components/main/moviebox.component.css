@@ -1,9 +1,10 @@
-.box{
+.box {
   width: 100%;
   min-height: 60vh;
   margin: auto;
   padding: 40px 10px;
 }
+
 section {
   padding: 0 200px;
   width: 100vw;
@@ -12,7 +13,8 @@ section {
   align-items: center;
   grid-template-areas: "A B C";
 }
-img{
+
+img {
   display: block;
   margin: auto;
   width: 250px;
@@ -20,39 +22,43 @@ img{
   cursor: pointer;
 }
 
-p{
+p {
   margin-top: 20px;
   text-align: center;
   font-size: 16px;
   color: white;
 }
+
 @media (max-width: 1200px) {
-  section{
+  section {
     padding: 0 100px;
     grid-template-areas: "A B";
   }
-  .box{
+
+  .box {
     padding: 80px 0 5px;
     min-height: 45vh;
   }
 }
+
 @media (max-width: 600px) {
-  section{
+  section {
     padding: 0 0;
     display: block;
   }
-  .box{
+
+  .box {
     padding: 40px 0 5px;
     min-height: 45vh;
   }
 }
 
 @media (max-width: 400px) {
-  section{
+  section {
     display: block;
   }
-  .box{
+
+  .box {
     padding: 40px 0 5px;
   }
 }
-

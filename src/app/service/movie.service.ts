@@ -20,15 +20,15 @@ export class MovieService {
   private moviesSource = new BehaviorSubject(this.movies);
   currentMovies = this.moviesSource.asObservable();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   searchMovie(name: string) {
     return this.httpClient.get<ApiResponse>(`${this.apiURL}&s=${name}`).pipe(catchError((error: HttpErrorResponse) => {
       return throwError(error.error);
     }));
   }
-  
-  searchMovieId(id:string) {
+
+  searchMovieId(id: string) {
     return this.httpClient.get<ApiResponse>(`${this.apiURL}&i=${id}`).pipe(catchError((error: HttpErrorResponse) => {
       return throwError(error.error);
     }));
@@ -37,5 +37,5 @@ export class MovieService {
   changeMovies(movies: Movie[]) {
     this.moviesSource.next(movies)
   }
-  
+
 }
