@@ -41,8 +41,8 @@ How to start?
 - Replace the 'API_KEY' inside the 'movie.service.ts' document with one generated on the OMDb API website: https://www.omdbapi.com/ ;
 - Inside the project root run the following commands: 
 
-	npm intall
-	npm start
+	- npm intall
+	- npm start
 
 - You can access the app on port 4200 'http://localhost:4200/main' .
 
