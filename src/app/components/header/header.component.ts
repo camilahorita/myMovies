@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../../classes/movie';
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '../../services/movie/movie.service';
 
 
 @Component({
@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchNewMovies('batman');
-
   }
+  
   async search(value: string) {
     this.returnPage();
     await this.searchNewMovies(value);

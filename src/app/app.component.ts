@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { LoadingService } from './services/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'my-movie-project';
+  loading$ = this.loader.loading$;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loader: LoadingService) { }
 
   public goToPage(pageName: string): void {
     this.router.navigate([`${pageName}`])

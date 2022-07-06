@@ -4,9 +4,12 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DetailsComponent } from './components/details/details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { BodyComponent } from './components/body/body.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { NetworkInterceptor } from './services/interceptor/network.interceptor';
 
 
 @NgModule({
@@ -20,9 +23,15 @@ import { BodyComponent } from './components/body/body.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [{
+  provide: HTTP_INTERCEPTORS,
+  useClass: NetworkInterceptor,
+  multi: true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule {

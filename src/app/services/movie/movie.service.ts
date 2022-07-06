@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, throwError } from 'rxjs';
-import { Movie } from '../classes/movie';
+import { Movie } from '../../classes/movie';
 
 export type ApiResponse = {
   Response: string;

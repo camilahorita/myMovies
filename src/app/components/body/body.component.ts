@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/classes/movie';
-import { MovieService } from 'src/app/services/movie.service';
+import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
   selector: 'app-body',
@@ -23,6 +23,8 @@ export class BodyComponent implements OnInit {
 
   }
   ngOnDestroy() {
+    if(this.subscription){
     this.subscription.unsubscribe();
+    }
   }
 }

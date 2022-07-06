@@ -7,3 +7,25 @@
   align-items: center;
   justify-content: center;
 }
+mat-progress-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+ng-container {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  backdrop-filter: blur(2px);
+}
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: red;
+  }

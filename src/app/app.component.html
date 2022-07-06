@@ -1,5 +1,9 @@
 <app-header></app-header>
 <section class="movies">
+  <div class="container" *ngIf="loading$ | async">
+    <div class="overlay"></div>
+    <mat-progress-spinner [mode]="'indeterminate'" ></mat-progress-spinner>
+  </div>
   <router-outlet></router-outlet>
 </section>
 <app-footer></app-footer>
