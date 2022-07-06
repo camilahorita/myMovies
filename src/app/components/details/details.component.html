@@ -1,5 +1,5 @@
 <section class="movieDetails">
-  <img id="image" [src]="movie.Poster" onerror="this.src='../../assets/placeholder-noimage.jpeg'" [alt]="movie.Title">
+  <img id="image" onerror="this.src='../../assets/placeholder-noimage.jpeg'" [src]="movie.Poster"  [alt]="movie.Title">
   <div class="movieInfo">
     <h2 id="title"> {{ movie.Title }}  </h2>
     <p id="date"> Released date: {{ movie.Released }}</p>

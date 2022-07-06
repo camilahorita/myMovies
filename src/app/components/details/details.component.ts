@@ -13,7 +13,7 @@ import { LoadingService } from '../../services/loading/loading.service';
 export class DetailsComponent implements OnInit {
   id: string = ''
   movies: Movie[] = []
-  movie: any = { Title: "New title", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "", Plot: "" };
+  movie: any = { Title: "", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "", Plot: "" };
   subscription!: Subscription;
 
   constructor(private route: ActivatedRoute, private service: MovieService, private loader: LoadingService){ }
@@ -32,7 +32,8 @@ export class DetailsComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  ngAfterViewInit() {
-    this.loader.hide()
+
+  ngAfterContentInit(){
+    this.loader.hide();
   }
 }

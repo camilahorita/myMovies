@@ -37,8 +37,6 @@ export class HeaderComponent implements OnInit {
 
   async searchNewMovies(value: string) {
     if (value === '') {
-      this.show = true;
-      this.content = "The input is required"
       throw new Error("The input is required");
     }
     this.subscription = this.movieService.searchMovie(value).subscribe(result => {
