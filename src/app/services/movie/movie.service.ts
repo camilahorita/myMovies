@@ -14,7 +14,7 @@ export type ApiResponse = {
 })
 
 export class MovieService {
-  apiURL: string = 'https://www.omdbapi.com/?apikey=bd3ee387';
+  apiURL: string = `https://www.omdbapi.com/?apikey=${API_KEY}`;
   movies: Movie[] = [];
 
   private moviesSource = new BehaviorSubject(this.movies);

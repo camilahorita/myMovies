@@ -38,7 +38,7 @@ Prerequisites:
 
 How to start?
 - Open the project in your machine;
-- Replace the 'API_KEY' inside the movie.service.ts document with one generated on the OMDb API website: https://www.omdbapi.com/ ;
+- Replace the 'API_KEY' inside the 'movie.service.ts' document with one generated on the OMDb API website: https://www.omdbapi.com/ ;
 - Inside the project root run the following commands: 
 
 	npm intall
