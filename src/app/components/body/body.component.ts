@@ -1,16 +1,16 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../classes/movie';
-import { MovieService } from '../../service/movie.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Movie } from 'src/app/classes/movie';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
-  selector: 'app-moviebox',
-  templateUrl: './moviebox.component.html',
-  styleUrls: ['./moviebox.component.css'],
+  selector: 'app-body',
+  templateUrl: './body.component.html',
+  styleUrls: ['./body.component.css']
 })
-export class MovieboxComponent implements OnInit {
+export class BodyComponent implements OnInit {
+
   movies: Movie[] | undefined;
   subscription!: Subscription;
  
@@ -25,5 +25,4 @@ export class MovieboxComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

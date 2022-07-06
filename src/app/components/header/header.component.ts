@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../../classes/movie';
-import { MovieService } from '../../service/movie.service';
+import { MovieService } from '../../services/movie.service';
 
 
 @Component({

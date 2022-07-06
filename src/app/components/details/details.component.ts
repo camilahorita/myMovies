@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../../classes/movie';
-import { MovieService } from '../../service/movie.service';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-details',

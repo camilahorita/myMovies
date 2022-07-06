@@ -3,15 +3,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MovieboxComponent } from './moviebox.component';
+import { BodyComponent } from './body.component';
 
-describe('MovieboxComponent', () => {
-  let component: MovieboxComponent;
-  let fixture: ComponentFixture<MovieboxComponent>;
+describe('BodyComponent', () => {
+  let component: BodyComponent
+  let fixture: ComponentFixture<BodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MovieboxComponent],
+      declarations: [BodyComponent],
       imports: [
         RouterTestingModule,
         HttpClientTestingModule
@@ -19,7 +19,7 @@ describe('MovieboxComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(MovieboxComponent);
+    fixture = TestBed.createComponent(BodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -27,6 +27,7 @@ describe('MovieboxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
   it('should change the image and photo', () => {
     component.movies = [{ Title: "New title", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "Newphoto", Plot: "" }];
     fixture.detectChanges();
@@ -36,5 +37,4 @@ describe('MovieboxComponent', () => {
     expect((elementTitle.nativeElement as HTMLSpanElement).textContent).toEqual("New title");
     expect(elementPhoto.nativeElement.src).toEqual("http://localhost:9876/Newphoto");
   })
-
 });
