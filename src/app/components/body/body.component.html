@@ -1,7 +1,7 @@
 <section>
   <div class="box" *ngFor="let movie of movies">
-      <img [routerLink]="['/details', movie.imdbID]" id="image"
+      <img [routerLink]="['/details', movie.imdbID]" class="image"
           onerror="this.src='../../assets/placeholder-noimage.jpeg'" [src]="movie.Poster" [alt]="movie.Title">
-      <p id="title">{{ movie.Title }}</p>
+      <p class="title">{{ movie.Title }}</p>
   </div>
 </section>
