@@ -31,8 +31,8 @@ describe('BodyComponent', () => {
   it('should change the image and photo', () => {
     component.movies = [{ Title: "New title", Released: "", Genre: "", Language: "", Year: "", imdbID: "1", Poster: "Newphoto", Plot: "" }];
     fixture.detectChanges();
-    const elementTitle = fixture.debugElement.query(By.css('#title'));
-    const elementPhoto = fixture.debugElement.query(By.css('#image'));
+    const elementTitle = fixture.debugElement.query(By.css('.title'));
+    const elementPhoto = fixture.debugElement.query(By.css('.image'));
 
     expect((elementTitle.nativeElement as HTMLSpanElement).textContent).toEqual("New title");
     expect(elementPhoto.nativeElement.src).toEqual("http://localhost:9876/Newphoto");
